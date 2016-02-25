@@ -5,14 +5,14 @@ int CountNeigh(int matrice[][10][10], int posizione[2] ) {
     int counter = 0;
     int row = posizione[0];
     int col = posizione[1];
-    if ( matrice[row-1][col-1] == 1 ) { counter++; }
-    if ( matrice[row-1][col] == 1 ) { counter++; }
-    if ( matrice[row-1][col+1] == 1 ) { counter++; }
-    if ( matrice[row][col-1] == 1 ) { counter++; }
-    if ( matrice[row][col+1] == 1 ) { counter++; }
-    if ( matrice[row+1][col-1] == 1 ) { counter++; }
-    if ( matrice[row+1][col] == 1 ) { counter++; }
-    if ( matrice[row+1][col+1] == 1 ) { counter++; }
+    if ( *matrice[row-1][col-1] == 1 ) { counter++; }
+    if ( *matrice[row-1][col] == 1 ) { counter++; }
+    if ( *matrice[row-1][col+1] == 1 ) { counter++; }
+    if ( *matrice[row][col-1] == 1 ) { counter++; }
+    if ( *matrice[row][col+1] == 1 ) { counter++; }
+    if ( *matrice[row+1][col-1] == 1 ) { counter++; }
+    if ( *matrice[row+1][col] == 1 ) { counter++; }
+    if ( *matrice[row+1][col+1] == 1 ) { counter++; }
     return counter;
 }
 
