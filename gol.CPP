@@ -1,11 +1,12 @@
 #include <vector>
 #include <iostream>
+#include <utility> //for pairs
 using namespace std;
 
-int CountNeigh(vector<vector<int> > matrice , int posizione[2] ) {
+int CountNeigh(vector<vector<int> > matrice , pair <int,int> posizione ) {
     int counter = 0;
-    int row = posizione[0];
-    int col = posizione[1];
+    int row = posizione.first;
+    int col = posizione.second;
     int HEIGHT = matrice.size();
     // << "size" << HEIGHT << "\n";
     int WIDTH = matrice[0].size();
@@ -35,7 +36,7 @@ for ( int i = 0; i < 10; i++) {
     vector<vector<int> > new_canvas (HEIGHT, vector<int>(WIDTH, 0));
     for ( int j = 0; j < HEIGHT*WIDTH; j++) {
         //new_canvas[j/WIDTH][j%WIDTH]; //considerig this
-        int position[] = {j/WIDTH, j%WIDTH};
+        pair <int,int> position (j/WIDTH, j%WIDTH);
         //cout << j/WIDTH;
         //cout << j%WIDTH;
         CountNeigh(canvas,position); //define function that ount neigh and return counter
