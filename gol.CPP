@@ -23,6 +23,22 @@ int CountNeigh(vector<vector<int> > matrice , pair <int,int> posizione ) {
     return counter;
 }
 
+void PrintCanvas(vector<vector<int> > canvas) {
+    int HEIGHT = canvas.size();
+    int WIDTH =  canvas[0].size();
+    for ( int x = 0; x < HEIGHT; x++) {
+        for ( int xx = 0; xx < WIDTH; xx++) {
+            cout << canvas[x][xx]<< " ";
+            if (xx == WIDTH-1){
+                cout << "\n";
+            }
+        }
+        if ( x == HEIGHT-1 ){
+            cout << "================" <<"\n";
+        }
+    }
+}
+
 int main () {
     string input;
     cout << "enter underpopulation {default would be 2} "<<"\n";
@@ -41,7 +57,15 @@ int main () {
     int situation;
     //cout << canvas[0][0] <<"\n";
 
-    for ( int i = 0; i < 10; i++) { //number of iteration, ideally infinite
+    //delete the following lines and add an input system
+    canvas[5][3] = 1;
+    canvas[1][7] = 1;
+    canvas[1][2] = 1;
+    canvas[3][2] = 1;
+    canvas[5][2] = 1;
+    PrintCanvas(canvas);
+
+    for ( int i = 0; i < 2; i++) { //number of iteration, ideally infinite
         vector<vector<int> > new_canvas (HEIGHT, vector<int>(WIDTH, 0));
         for ( int j = 0; j < HEIGHT*WIDTH; j++) { //itearte over the matrix
             pair <int,int> position (j/WIDTH, j%WIDTH);
@@ -57,16 +81,6 @@ int main () {
             }
         }
         canvas = new_canvas;
-        for ( int x = 0; x < HEIGHT; x++) {
-            for ( int xx = 0; xx < WIDTH; xx++) {
-                cout << canvas[x][xx];
-                if (xx == WIDTH-1){
-                    cout << "\n";
-                }
-            }
-            if ( x == HEIGHT-1 ){
-                cout << "================" <<"\n";
-            }
-        }
+        PrintCanvas(canvas);
     }
 }
