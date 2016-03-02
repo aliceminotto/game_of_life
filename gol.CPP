@@ -28,7 +28,12 @@ void PrintCanvas(vector<vector<int> > canvas) {
     int WIDTH =  canvas[0].size();
     for ( int x = 0; x < HEIGHT; x++) {
         for ( int xx = 0; xx < WIDTH; xx++) {
-            cout << canvas[x][xx]<< " ";
+            if (canvas[x][xx] == 0) {
+                cout << "-"<< " ";
+            } else {
+                cout << "*"<< " ";
+            }
+            //cout << canvas[x][xx]<< " ";
             if (xx == WIDTH-1){
                 cout << "\n";
             }
@@ -50,8 +55,8 @@ int main () {
     cout << "enter reproduction case {default would be 3}"<<"\n";
     getline(cin,input);
     int REPR = stoi(input);
-    int WIDTH = 10;
-    int HEIGHT = 10;
+    int WIDTH = 20;
+    int HEIGHT = 20;
 
     vector<vector<int> > canvas (HEIGHT, vector<int>(WIDTH, 0));
     int situation;
