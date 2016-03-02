@@ -44,17 +44,31 @@ void PrintCanvas(vector<vector<int> > canvas) {
     }
 }
 
+int CheckNum() {
+    int var;
+    while (!(cin >> var )) {
+        cout << "bad input" << "\n";
+        cin.clear();
+        cin.ignore( 1000, '\n');
+    }
+    return var;
+}
+
 int main () {
     string input;
     cout << "enter underpopulation {default would be 2} "<<"\n";
-    getline(cin,input);
-    int UNDER = stoi(input);
+    //getline(cin,input);
+    //int UNDER = stoi(input);
+    int UNDER = CheckNum();
     cout << "enter overpopulation {default would be 3}"<<"\n";
-    getline(cin,input);
-    int OVER = stoi(input);
+    //getline(cin,input);
+    //int OVER = stoi(input);
+    int OVER = CheckNum();
     cout << "enter reproduction case {default would be 3}"<<"\n";
-    getline(cin,input);
-    int REPR = stoi(input);
+    //getline(cin,input);
+    //int REPR = stoi(input);
+    int REPR = CheckNum();
+    //cout << UNDER<<" " << OVER << " " << REPR << "\n";
     int WIDTH = 20;
     int HEIGHT = 20;
 
