@@ -57,15 +57,28 @@ int main () {
     int situation;
     //cout << canvas[0][0] <<"\n";
 
-    //delete the following lines and add an input system
-    canvas[5][3] = 1;
-    canvas[1][7] = 1;
-    canvas[1][2] = 1;
-    canvas[3][2] = 1;
-    canvas[5][2] = 1;
+    //input alive cells
+    cout << "enter position of cell as N N, press q when finished"<<"\n";
+    cout << "the first number must be between 1 and "<<HEIGHT<<"\n";
+    cout << "the second number must be between 1 and "<<WIDTH<<"\n";
+    int row;
+    int col;
+    char q;
+    do {
+        while (! (cin >> row >> col)) { //enter the loop if that fails?
+            cout << "the inputs must be 2 numbers"<<"\n";
+            cin.clear(); //reset failure flag
+            cin.ignore (1000, '\n');  // Skip to next newline or 1000 chars,
+        }
+        //cin >> row >> col;
+        canvas[row-1][col-1] = 1;
+        cout << "press q or Q to exit, any other key to continue" <<"\n";
+        cin >> q;
+    } while (q != 'q' && q!='Q');
+
     PrintCanvas(canvas);
 
-    for ( int i = 0; i < 2; i++) { //number of iteration, ideally infinite
+    for ( int i = 0; i < 10; i++) { //number of iteration, ideally infinite
         vector<vector<int> > new_canvas (HEIGHT, vector<int>(WIDTH, 0));
         for ( int j = 0; j < HEIGHT*WIDTH; j++) { //itearte over the matrix
             pair <int,int> position (j/WIDTH, j%WIDTH);
