@@ -60,28 +60,38 @@ int main () {
     //getline(cin,input);
     //int UNDER = stoi(input);
     int UNDER = CheckNum();
+    while ( UNDER < 0 || UNDER > 9) {
+        cout << "underpopulation must be between 0 and 9"<< "\n";
+        UNDER = CheckNum();
+    }
     cout << "enter overpopulation {default would be 3}"<<"\n";
     //getline(cin,input);
     //int OVER = stoi(input);
     int OVER = CheckNum();
+    while ( OVER < UNDER || OVER > 9) {
+        cout << "overpopulation must be between " << UNDER << " and 9" << "\n";
+        OVER = CheckNum();
+    }
     cout << "enter reproduction case {default would be 3}"<<"\n";
     //getline(cin,input);
     //int REPR = stoi(input);
     int REPR = CheckNum();
-    //cout << UNDER<<" " << OVER << " " << REPR << "\n";
+    while ( REPR < UNDER || REPR > OVER ) {
+        cout << "reproduction must happen between " << UNDER << " and " << OVER << "\n";
+        REPR = CheckNum();
+    }
+    cout << UNDER<<" " << OVER << " " << REPR << "\n";
     int WIDTH = 20;
     int HEIGHT = 20;
 
     vector<vector<int> > canvas (HEIGHT, vector<int>(WIDTH, 0));
     int situation;
-    //cout << canvas[0][0] <<"\n";
 
     //input alive cells
     cout << "enter position of cell as N N, press q when finished"<<"\n";
     cout << "the first number must be between 1 and "<<HEIGHT<<"\n";
     cout << "the second number must be between 1 and "<<WIDTH<<"\n";
-    int row;
-    int col;
+    int row, col;
     char q;
     do {
         while (! (cin >> row >> col)) { //enter the loop if that fails?
