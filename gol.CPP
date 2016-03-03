@@ -12,14 +12,18 @@ int CountNeigh(vector<vector<int> > matrice , pair <int,int> posizione ) {
     int HEIGHT = matrice.size();
     // << "size" << HEIGHT << "\n";
     int WIDTH = matrice[0].size();
-    if ( row-1 >= 0 && col-1 >= 0 && matrice[row-1][col-1] == 1 ) { counter++; }
-    if ( row-1 >= 0 && matrice[row-1][col] == 1 ) { counter++; }
-    if ( row-1 >=0 && col+1 < WIDTH && matrice[row-1][col+1] == 1 ) { counter++; }
+    if ( row-1 >= 0 ){
+        if ( col-1 >= 0 && matrice[row-1][col-1] == 1 ) { counter++; }
+        if ( matrice[row-1][col] == 1 ) { counter++; }
+        if ( col+1 < WIDTH && matrice[row-1][col+1] == 1 ) { counter++; }
+    }
     if ( col-1 >= 0 && matrice[row][col-1] == 1 ) { counter++; }
     if ( col+1 < WIDTH && matrice[row][col+1] == 1 ) { counter++; }
-    if ( row+1 < HEIGHT && col-1 >= 0 && matrice[row+1][col-1] == 1 ) { counter++; }
-    if ( row+1 < HEIGHT && matrice[row+1][col] == 1 ) { counter++; }
-    if ( row+1 < HEIGHT && col+1 < WIDTH && matrice[row+1][col+1] == 1 ) { counter++; }
+    if ( row+1 < HEIGHT ) {
+        if ( col-1 >= 0 && matrice[row+1][col-1] == 1 ) { counter++; }
+        if ( matrice[row+1][col] == 1 ) { counter++; }
+        if ( col+1 < WIDTH && matrice[row+1][col+1] == 1 ) { counter++; }
+    }
     return counter;
 }
 
