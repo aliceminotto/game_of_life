@@ -5,7 +5,7 @@
 #include <string>
 using namespace std;
 
-int CountNeigh(vector<vector<int> > matrice , pair <int,int> posizione ) {
+int CountNeigh(const vector<vector<int> >& matrice , const pair <int,int>& posizione ) {
     int counter = 0;
     int row = posizione.first;
     int col = posizione.second;
