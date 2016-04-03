@@ -3,6 +3,7 @@
 #include <utility> //for pairs
 #include <sstream>
 #include <string>
+#include "gol.h"
 using namespace std;
 
 int CountNeigh(const vector<vector<int> >& matrice , const pair <int,int>& posizione ) {
